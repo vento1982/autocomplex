@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'puma'
 
+gem 'devise'
 gem 'letter_opener'
 gem 'carrierwave'
 gem 'mini_magick'
