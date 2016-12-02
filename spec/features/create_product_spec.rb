@@ -1,15 +1,18 @@
 require 'rails_helper'
+require_relative '../support/admin_page'
+require_relative '../support/product_form'
 
-feature 'authenticate user can create new product' do
+feature 'create new product' do
+	
+	let(:admin_page) { AdminPage.new }
+
+
 	scenario 'create new product with valid data' do
-		visit('/admin/')
-		click_on('Nowa usługa')
+		
+		admin_page.visit_page.new_product
+		product_form.add_product(title: "Tire", description: "Super cool spare tire!").submit
 
-		fill_in('Title', with: 'Ogumienie')
-		fill_in('Description', with: 'Super guma')
-		click_on('Dodaj usługę')
-
-		expect(page).to have_content('Usługa została dodana')
-		expect(Product.last.title).to eq('Ogumienie')
+		expect(page).to have_content("Product has been created")
+		expect(Product.last.title).to eq('Tire')
 	end
 end
