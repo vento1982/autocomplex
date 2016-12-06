@@ -12,7 +12,9 @@
 			%ul.nav.navbar-nav
 				%li= link_to 'New product', new_admin_product_path
 				%li= link_to 'Kontakt', contact_path
-	.container
-		%p.notice= notice
-		%p.alert= alert
+				%li= link_to 'Wyloguj', destroy_user_session_path, method: :delete
+	.container-fluid
+		= if flash[:notice]
+			.alert.alert-success= flash[:notice]
+	
 		= yield

@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ProductsController, type: :controller do
+
+	describe "GET index" do
+		it "renders :index template" do
+			get :index
+			expect(response).to render_template(:index)
+		end	
+		it "assigns products to template" do
+			product = FactoryGirl.create(:product)
+			get :index
+			expect(assigns(:products)).to match_array([product])
+		end
+	end
+
 	describe "GET new" do 
 		
 		it "renders :new template" do
@@ -31,7 +44,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
 	describe "POST create" do
 		context "valid data" do
 			let(:valid_data) { FactoryGirl.attributes_for(:product) }
-			
+
 			it "redirects to product#show" do
 				post :create, product: valid_data
 
@@ -56,6 +69,66 @@ RSpec.describe Admin::ProductsController, type: :controller do
 					post :create, product: invalid_data
 				}.not_to change(Product, :count)
 			end
+		end
+	end
+
+	describe "GET edit" do
+
+			let(:product) { FactoryGirl.create(:product) }
+			it "renders :edit template" do
+				get :edit, id: product.id
+				expect(response).to render_template(:edit)		
+			end
+			it "assigns the requested product to template" do 
+				get :edit, id: product.id
+				expect(assigns(:product)).to eq(product) 
+			end		
+	end
+
+	describe "PUT update" do
+		
+		let(:product) { FactoryGirl.create(:product) }
+		context "valid data" do
+			
+			let(:valid_data) { FactoryGirl.attributes_for(:product, title: "New title", decription: "New description") }
+			it "redirect to product" do	
+				put :update, id: product, product: valid_data
+				expect(response).to redirect_to(admin_product_path(product))
+			end
+			it "save product in database" do
+				put :update, id: product, product: valid_data
+				product.reload
+				expect(product.title).to eq("New title")
+			end
+		end
+
+		context "invallid data" do
+
+			let(:invalid_data) { FactoryGirl.attributes_for(:product, title: "", description: "new") }
+			it "render :edit template" do 
+				put :update, id: product, product: invalid_data
+				expect(response).to render_template(:edit)
+			end
+
+			it "dosen't update product in database" do
+				put :update, id: product, product: invalid_data
+				product.reload
+				expect(product.description).not_to eq("new") 
+			end
+		end
+	end
+
+	describe "DELETE destroy" do
+		
+		let(:product) { FactoryGirl.create(:product) }
+		it "deletes product from database" do
+			delete :destroy, id: product.id
+			expect(Product.count).to eq(0)
+		end
+
+		it "redirect to product#index" do
+			delete :destroy, id: product
+			expect(response).to redirect_to(root_path)
 		end
 	end
 end

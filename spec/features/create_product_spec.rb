@@ -5,6 +5,7 @@ require_relative '../support/product_form'
 feature 'create new product' do
 	
 	let(:admin_page) { AdminPage.new }
+	let(:product_form) { ProductForm.new }
 
 
 	scenario 'create new product with valid data' do
