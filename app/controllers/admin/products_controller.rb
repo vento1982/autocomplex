@@ -1,5 +1,7 @@
 class Admin::ProductsController < Admin::BaseController
 	before_action :find_product, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
+	before_action :only_owners, only: [ :edit, :update, :destroy ]
 
 	def index
 		@products = Product.all
@@ -17,6 +19,7 @@ class Admin::ProductsController < Admin::BaseController
 
 	def create
 		@product = Product.new(product_params)
+		
 
 		if @product.save
 			redirect_to admin_product_path(@product), notice: 'Product has been created'
@@ -34,7 +37,7 @@ class Admin::ProductsController < Admin::BaseController
 	end
 
 	def destroy
-		@product.delete
+		@product.destroy
 		redirect_to root_path
 	end
 
@@ -47,4 +50,11 @@ class Admin::ProductsController < Admin::BaseController
 	def find_product
 		@product = Product.find(params[:id])
 	end
+
+	def only_owners
+		if current_user.id != @product.user_id
+			redirect_to(admin_products_path)
+		end
+	end
+
 end
