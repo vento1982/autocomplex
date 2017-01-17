@@ -8,10 +8,10 @@
 	%header
 		= nav_bar brand: image_tag("ac.png"), responsive: true do
 			%ul.nav.navbar-nav
-				%li= link_to 'Produkty', admin_products_path
+				%li= link_to 'Products', admin_products_path
 			%ul.nav.navbar-nav.navbar-right
-				%li= link_to 'Nowy produkt', new_admin_product_path
-				%li= link_to 'Wyloguj', destroy_user_session_path, method: :delete
+				%li= link_to 'New product', new_admin_product_path
+				%li= link_to 'Log out', destroy_user_session_path, method: :delete
 	.container-fluid
 		= if flash[:notice]
 			.alert.alert-success= flash[:notice]
