@@ -19,8 +19,8 @@ class Admin::ProductsController < Admin::BaseController
 
 	def create
 		@product = Product.new(product_params)
+		@product.user_id = current_user.id
 		
-
 		if @product.save
 			redirect_to admin_product_path(@product), notice: 'Product has been created'
 		else

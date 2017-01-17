@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 gem 'rails-i18n'
 gem 'haml'
 
