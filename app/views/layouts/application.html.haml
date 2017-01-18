@@ -15,7 +15,7 @@
 				= menu_item 'Logout', destroy_user_session_path, method: :delete
 	.jumbotron
 		%h1 Test
-	.container
 		%p.notice= notice
 		%p.alert= alert
+	.container-fluid
 		= yield

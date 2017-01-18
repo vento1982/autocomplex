@@ -23,6 +23,8 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'rails-i18n'
 gem 'haml'
+gem 'faker', '~> 1.6', '>= 1.6.3'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 group :development, :test do
   gem 'spring'

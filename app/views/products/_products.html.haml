@@ -1,0 +1,11 @@
+- products.each_slice(2) do |slice|
+	.row
+		.col-md-10.col-md-offset-1
+			- slice.each do |product|
+				.col-md-6
+					.thumbnail
+						= link_to admin_product_path(product) do
+							= image_tag Faker::Placeholdit.image("640x480", 'jpg', 'cccccc')
+						.caption
+							%h3= link_to Faker::Hacker.noun, admin_product_path(product)
+							%p= simple_format(truncate(Faker::Hacker.say_something_smart, length: 90))

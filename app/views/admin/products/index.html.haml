@@ -1,7 +1,3 @@
 %h1 Product Admin Site
 
-- @products.each_slice(3) do |slice|
-	.row
-		- slice.each do |product|
-			.col-md-4
-				= product.title
+=render partial: 'products', locals: {products: @products}

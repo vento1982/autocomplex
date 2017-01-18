@@ -1,7 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
 	before_action :find_product, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, only: [ :index, :new, :create, :edit, :update, :destroy ]
-	before_action :only_owners, only: [ :edit, :update, :destroy ]
+	#before_action :only_owners, only: [ :edit, :update, :destroy ]
 
 	def index
 		@products = Product.all
@@ -38,7 +37,7 @@ class Admin::ProductsController < Admin::BaseController
 
 	def destroy
 		@product.destroy
-		redirect_to root_path
+		redirect_to admin_products_path
 	end
 
 	private
