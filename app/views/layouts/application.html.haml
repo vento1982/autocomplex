@@ -12,6 +12,7 @@
 			= menu_item 'Contact', contact_path
 		- if current_user
 			= menu_group pull: :right do
+				= menu_item 'Admin', admin_root_path
 				= menu_item 'Logout', destroy_user_session_path, method: :delete
 	.jumbotron
 		%h1 Test

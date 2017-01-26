@@ -15,11 +15,10 @@
 						%td= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
 						%td
 							- if user_signed_in?
-								%p
-									= link_to admin_product_path(product), class: "btn btn-primary btn-xs" do
-										%span.fa.fa-pencil Show 
-									= link_to edit_admin_product_path(product), class: "btn btn-warning btn-xs" do
-										%span.fa.fa-pencil Edit
-									= link_to admin_product_path(product), method: :delete, data: {confirm: "Are You sure ?"},  class: "btn btn-danger btn-xs" do
-										%span.fa.fa-trash Delete 
+								= link_to admin_product_path(product), class: "btn btn-primary btn-xs" do
+									%span.fa.fa-pencil Show 
+								= link_to edit_admin_product_path(product), class: "btn btn-warning btn-xs" do
+									%span.fa.fa-pencil Edit
+								= link_to admin_product_path(product), method: :delete, data: {confirm: "Are You sure ?"},  class: "btn btn-danger btn-xs" do
+									%span.fa.fa-trash Delete 
 						
