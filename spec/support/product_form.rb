@@ -3,7 +3,7 @@ class ProductForm
 
 	def visit_page
 		visit('/admin')
-		click_on('Nowy produkt')
+		click_on('New product')
 		self
 	end
 

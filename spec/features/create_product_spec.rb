@@ -22,6 +22,6 @@ feature 'create new product' do
 	scenario 'can not create new product with invalid data' do
 		product_form.visit_page.add_product(title: "", description: "").submit
 
-		expect(page).to have_content('nie może być puste')
+		expect(page).to have_content("can't be blank")
 	end
 end
