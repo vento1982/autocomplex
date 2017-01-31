@@ -1,0 +1,17 @@
+!!!
+%head
+	%title Autocomplex
+	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+	= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+%body
+	%header
+		=render partial: 'layouts/navigation'
+	= bootstrap_flash
+	%main
+		.container-fluid					
+			.jumbotron{:class => "#{@product.title}"}
+				.container
+					%h1 Testssssssssssssss			
+			= yield

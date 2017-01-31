@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   root to: "products#index"
+  resources :products
   get 'o-nas', to: 'static#about', as: :about
   get 'kontakt', to: "static#contact", as: :contact
 end

@@ -15,27 +15,35 @@
  $roboto: 'Roboto', sans-serif;
 
 // override bootstrap variables
+.alert{
+	margin-bottom: 0;
+	border-radius: 0;
+}
 
-
+header{
 
  .navbar{
  	margin: 0;
  	.navbar-brand{
- 		height: inherit;
+ 		padding: 4px;
  	}
  }
+}
+
  .navbar-default{
+ 	background-color: #fff;
+ 	
 	 .navbar-nav{
 	 	li{
 	 		a{
-	 			padding-top: 28px;
-	 			color: $gray;
+	 			color: $blue;
 	 			font-family: $roboto;
 	 			font-weight: bold;
+	 			border-top: 4px solid $white;
 	 			
 	 			&:hover{
-		 			color: $blue;
 		 			cursor: pointer;
+		 			border-top: 4px solid $blue;
 	 			}
 	 		}
 	 	}
@@ -52,23 +60,43 @@
 	 	}	
 	 }
 }
- .navbar-default{
- 	background-color: #fff;
- }
+
  .navbar-toggle{
  	margin-top: 22px;
  	margin-bottom: 22px;
  }
+
+ .container-fluid{
+ 	padding-left: 0;
+ 	padding-right: 0;
+
+ 	.jumbotron{
+ 		height:45vh;
+ 	}
+ }
+
  .jumbotron{
- 	position: relative;
+
 	height:60vh;
-	background-image: url(DSC_0077.jpg);
+	margin-bottom: 0;
 	background-repeat: none;
-	background-position: center;
 	background-size: cover;
-	overflow: hidden;
-	
+	background-position: center;
+
 	h1{
 		text-align: center;
 	}
+ }
+
+ .application{
+ 	background-image: url(1.jpg);
+ }
+ .array{
+ 	background-image: url(4.jpg);
+ }
+ .firewall{
+ 	background-image: url(2.jpg);
+ }
+  .microchip{
+ 	background-image: url(5.jpg);
  }
