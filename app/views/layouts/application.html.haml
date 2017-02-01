@@ -8,6 +8,8 @@
 %body
 	%header
 		=render partial: 'layouts/navigation'
-	= bootstrap_flash
+	=bootstrap_flash
 	%main
-		= yield
+		=yield
+	%footer{:class => 'site-footer'}
+		%p footer

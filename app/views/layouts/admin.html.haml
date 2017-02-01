@@ -12,7 +12,6 @@
 			%ul.nav.navbar-nav.navbar-right
 				%li= link_to 'New product', new_admin_product_path
 				%li= link_to 'Log out', destroy_user_session_path, method: :delete
+	= bootstrap_flash
 	.container-fluid
-		= if flash[:notice]
-			.alert.alert-success= flash[:notice]
 		= yield

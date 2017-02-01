@@ -1,0 +1,21 @@
+ // color veriables
+ $gray: #666666;
+ $blue: #00578F;
+ $white: #fff;
+
+ // fonts veriables
+ $roboto: 'Roboto', sans-serif;
+
+*{
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+/* site-footer */
+
+.site-footer{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-color: $blue;
+}
