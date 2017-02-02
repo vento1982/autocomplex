@@ -114,6 +114,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mail_form (1.6.0)
+      actionmailer (>= 3.2, < 5.1)
+      activemodel (>= 3.2, < 5.1)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -245,6 +248,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  mail_form
   mini_magick
   puma
   rails (= 4.2.6)
