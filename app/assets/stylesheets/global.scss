@@ -1,7 +1,8 @@
  // color veriables
  $gray: #666666;
- $blue: #00578F;
+ $main-color: #00578F;
  $white: #fff;
+ $second-color: #007D41;
 
  // fonts veriables
  $roboto: 'Roboto', sans-serif;
@@ -12,10 +13,24 @@
 }
 
 
+ .application{
+ 	background-image: url(1.jpg);
+ }
+ .array{
+ 	background-image: url(4.jpg);
+ }
+ .firewall{
+ 	background-image: url(2.jpg);
+ }
+  .microchip{
+ 	background-image: url(5.jpg);
+ }
+
+
 /* site-footer */
 
 .site-footer{
 	padding-top: 100px;
 	padding-bottom: 100px;
-	background-color: $blue;
+	background-color: $main-color;
 }

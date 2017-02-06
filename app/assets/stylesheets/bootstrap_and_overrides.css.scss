@@ -1,0 +1,142 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+ // color veriables
+
+ $gray: #666666;
+ $main-color: #00578F;
+ $white: #fff;
+ $input-color-placeholder: #fff;
+
+
+ // fonts veriables
+
+ $roboto: 'Roboto', sans-serif;
+
+//alerts
+
+.alert{
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+// navabr
+
+header{
+
+ .navbar{
+ 	margin: 0;
+ 	.navbar-brand{
+ 		padding: 4px;
+ 	}
+ }
+}
+
+ .navbar-default{
+ 	background-color: #fff;
+ 	
+	 .navbar-nav{
+	 	li{
+	 		a{
+	 			color: $main-color;
+	 			font-family: $roboto;
+	 			font-weight: bold;
+	 			border-top: 4px solid $white;
+	 			
+	 			&:hover{
+		 			cursor: pointer;
+		 			border-top: 4px solid $main-color;
+	 			}
+	 		}
+	 	}
+	 	li.active{
+	 		a{
+	 			background-color: $white;
+	 			color: $main-color;
+
+	 			&:hover{
+	 				color: $main-color;
+	 				background-color: $white;
+	 			}
+	 		}
+	 	}	
+	 }
+}
+
+ .navbar-toggle{
+ 	margin-top: 22px;
+ 	margin-bottom: 22px;
+ }
+
+//body
+
+ .container-fluid{
+ 	padding-left: 0;
+ 	padding-right: 0;
+
+ 	.jumbotron{
+ 		height:45vh;
+ 	}
+ }
+
+ .jumbotron{
+
+	height:60vh;
+	margin-bottom: 0;
+	background-repeat: none;
+	background-size: cover;
+	background-position: center;
+
+	h1{
+		text-align: center;
+	}
+ }
+
+
+ /* contact form */
+
+ .form-control{
+ 	
+ 	background: 0;
+ 	color: $white;
+ 	font-size: 18px;
+ 	box-shadow: none;
+ 	border-radius: 0;
+ 	border:0;
+ 	border-bottom: 1px solid #00FC83;
+
+ 	-webkit-transition: font-size .25s ease-in, border-color .5s ease-in;
+ 	transiton: font-size .25s ease-in, border-color .5s ease-in;
+ 	
+ 	&:focus{
+ 		
+ 		font-size: 13px;
+ 		box-shadow: none;
+ 		border-color: #007d41;
+ 	}
+ 
+ }
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: $white !important;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: $white !important;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: $white !important;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: $white !important;
+}
+
+

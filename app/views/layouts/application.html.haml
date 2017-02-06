@@ -10,6 +10,7 @@
 		=render partial: 'layouts/navigation'
 	=bootstrap_flash
 	%main
-		=yield
+		.container-fluid
+			=yield
 	%footer{:class => 'site-footer'}
 		%p footer

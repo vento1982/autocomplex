@@ -1,5 +1,8 @@
-= simple_form_for @contact do |f|
-	= f.input :name
-	= f.input :email
-	= f.input :message
-	= f.button :submit, 'Send'
+%div.bg_form
+	.row
+		.col-md-4.col-md-offset-4
+			= simple_form_for @contact do |f|
+				= f.input :name, placeholder: "What's Your name"
+				= f.input :email, placeholder: "Write Your e-mail address"
+				= f.input :message, placeholder: "What Do You want to tell us"
+				= f.button :submit, 'Submit your message', class: "btn btn-lg btn-primary btn-group-justified"
