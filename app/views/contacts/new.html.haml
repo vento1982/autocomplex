@@ -1,2 +1,5 @@
 %h1 Kontakt
+.row
+	.col-md-12
+		%iframe{:width => "300", :height => "300", :frameborder => "0", :style => "border:0", :src => "https://www.google.com/maps/embed/v1/place?key=#{ENV["GOOGLE_MAPS"]}&q=ADDRESS_OR_COORDINATES"}
 =render partial: 'form', locals: {contact: @contact}
