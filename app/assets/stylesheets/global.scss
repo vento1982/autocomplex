@@ -4,6 +4,8 @@
  $white: #fff;
  $second-color: #007D41;
 
+ $txt-main-color: #4F5050;
+
  // fonts veriables
  $roboto: 'Roboto', sans-serif;
 
@@ -12,6 +14,46 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+.center-text{
+	margin: 60px auto;
+	text-align: center;
+}
+
+h1.styled{
+		display: inline-block;
+		margin:0;
+		color: $main-color;
+		font-weight: bold;
+		font-size: 3em;
+		letter-spacing: 3px;
+
+			&:after{
+			position:relative;
+			right:50%;
+			bottom:-15px;
+			content: '';
+    		display: inherit;
+    		width:35px;
+			border: 1px solid $second-color;
+		}
+}
+
+.first-row{
+	margin-top:60px;
+	margin-bottom: 60px;
+}
+ .modules{
+
+	height:60vh;
+	margin-bottom: 0;
+	background-repeat: none;
+	background-size: cover;
+	background-position: center;
+
+	h1{
+		text-align: center;
+	}
+}
 
  .application{
  	background-image: url(1.jpg);

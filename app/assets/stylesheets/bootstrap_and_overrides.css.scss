@@ -11,12 +11,26 @@
  $gray: #666666;
  $main-color: #00578F;
  $white: #fff;
- $input-color-placeholder: #fff;
+ $second-color: #007D41;
+
+ $txt-main-color: #4F5050;
 
 
  // fonts veriables
 
  $roboto: 'Roboto', sans-serif;
+
+// headers
+
+h2{
+	font-size: 20px;
+}
+
+// tables
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+	border: 0;
+}
 
 //alerts
 
@@ -50,7 +64,7 @@ header{
 	 			
 	 			&:hover{
 		 			cursor: pointer;
-		 			border-top: 4px solid $main-color;
+		 			border-top: 4px solid  $second-color;
 	 			}
 	 		}
 	 	}
@@ -58,6 +72,7 @@ header{
 	 		a{
 	 			background-color: $white;
 	 			color: $main-color;
+	 			border-top: 4px solid  $second-color;
 
 	 			&:hover{
 	 				color: $main-color;
@@ -76,51 +91,17 @@ header{
 //body
 
  .container-fluid{
- 	padding-left: 0;
- 	padding-right: 0;
+ 	
 
  	.jumbotron{
  		height:45vh;
  	}
  }
 
- .jumbotron{
-
-	height:60vh;
-	margin-bottom: 0;
-	background-repeat: none;
-	background-size: cover;
-	background-position: center;
-
-	h1{
-		text-align: center;
-	}
- }
-
 
  /* contact form */
 
- .form-control{
- 	
- 	background: 0;
- 	color: $white;
- 	font-size: 18px;
- 	box-shadow: none;
- 	border-radius: 0;
- 	border:0;
- 	border-bottom: 1px solid #00FC83;
 
- 	-webkit-transition: font-size .25s ease-in, border-color .5s ease-in;
- 	transiton: font-size .25s ease-in, border-color .5s ease-in;
- 	
- 	&:focus{
- 		
- 		font-size: 13px;
- 		box-shadow: none;
- 		border-color: #007d41;
- 	}
- 
- }
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {

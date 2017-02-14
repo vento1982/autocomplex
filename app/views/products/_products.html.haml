@@ -1,5 +1,5 @@
 - products.each do |product|
-	.jumbotron{:class => "#{product.title}"}
+	.col-md-12{:class => ["#{product.title}","modules"]}
 		%h1= link_to product.title.capitalize, product_path(product)
 		%p= simple_format(truncate(product.description, length: 90))
 		%p= link_to "Learn more", product_path(product), class: "btn btn-primary btn-lg"

@@ -1,9 +1,7 @@
 class StaticController < ApplicationController
 
 def about
-end
-
-def contact
+	render layout: 'jumbotron'
 end
 
 end
