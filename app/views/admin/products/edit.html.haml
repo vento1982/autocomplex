@@ -1,1 +1,4 @@
-Edycja
+= simple_form_for [:admin, @product] do |f|
+	= f.input :title
+	= f.input :description
+	= f.button :submit, 'Add product'

@@ -10,11 +10,13 @@
 		=render partial: 'layouts/navigation'
 	= bootstrap_flash
 	%main
-		.container-fluid					
-			.jumbotron
-				.container
-					%h1 Test	
-			.row		
+		.container-fluid	
+			.row.wrapper-jumbotron
+				.col-md-12				
+					.jumbotron
+						.container
+							%h1.jumbotron-slogan Warsztat klasy europejskiej	
+			.row.line-picture		
 				= yield
 	%footer{:class => 'site-footer'}
-		%p footer
+		=render partial: 'layouts/footer'

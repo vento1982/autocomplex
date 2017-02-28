@@ -1,6 +1,72 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.home_welcome{
-	
+ // color veriables
+ $gray: #666666;
+ $main-color: #00578F;
+ $white: #fff;
+ $second-color: #007D41;
+
+ $txt-main-color: #4F5050;
+  // fonts veriables
+ $roboto: 'Roboto', sans-serif;
+
+.wrapper-jumbotron {  
+    background-color: $main-color;
+    
+    .jumbotron{
+        background-color: inherit;
+    	margin-bottom:0;
+
+        .jumbotron-slogan{   //Don't repeat Yourself
+            font-size:82px;
+            color: $white;
+            font-weight: 100;
+            font-family: $roboto;
+            text-align: center;
+        }
+    }
+}
+
+.slogan{
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+	position: absolute;
+	top: 0;
+	height:50%;
+	bottom: 0;
+    right: 0;
+    left: 0;
+   	margin: auto;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    //-webkit-flex-direction: column;
+    //flex-direction: column;
+    //-webkit-flex-flow: column;
+    //flex-flow: column;
+
+    .slogan-content{
+    	position: relative;
+    	display: inline-block;
+    
+
+		.main-slogan{     //Don't repeat Yourself
+			margin:0;
+			font-size:82px;
+            color: $white;
+            font-weight: 100;
+            font-family: $roboto;
+		}
+
+		p{
+			color: $white;
+			font-size: 25px;
+            text-align: center;
+		}
+    }
 }

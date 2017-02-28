@@ -1,0 +1,37 @@
+.container
+	.row
+		.col-md-4
+			.row
+				.col-md-6
+					=image_tag ('ac_w.png')
+			.row
+				.col-md-6.col-xs-6
+					%ul.c-footer__list
+						%li= mail_to 'biuro@autocomplex.pl'
+						%li +48 555 555 555
+						%li +48 666 666 666 
+						%li 41-303 Dąbrowa Górnicza
+						%li Tworzeń 127
+				.col-md-6.col-xs-6
+					%ul.c-footer__list
+						%li NIP: 666 666 22 22
+						%li REGON: 11122233
+						%li KRS: 123654789
+		.col-md-8
+			.row
+				.col-md-3.col-xs-6
+					%h5.c-footer__header Menu
+					%ul.c-footer__list
+						%li= menu_item 'Home', root_path
+						%li= menu_item 'About us', about_path
+						%li Offert
+						%li= menu_item 'Contact', contacts_path
+						%li= menu_item 'Admin', admin_root_path
+				.col-md-3.col-xs-6
+					%h5.c-footer__header Info
+					%ul.c-footer__list
+						%li Refferences
+						%li Cooperation
+						%li Customer zone
+						%li Terms of use
+			

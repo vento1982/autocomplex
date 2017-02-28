@@ -5,4 +5,5 @@
 				= f.input :name, placeholder: "What's Your name"
 				= f.input :email, placeholder: "Write Your e-mail address"
 				= f.input :message, placeholder: "What Do You want to tell us"
-				= f.button :submit, 'Submit your message', class: "btn btn-lg btn-primary btn-group-justified"
+				.btn-wrapper
+					= f.button :submit, 'Submit your message', class: "btn btn-lg btn-primary "

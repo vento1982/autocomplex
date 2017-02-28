@@ -10,7 +10,7 @@
 			%tbody
 				- products.each do |product|
 					%tr
-						%td= product.title.capitalize
+						%td= product.title.titleize
 						%td= simple_format(truncate(product.description, length:30))
 						%td= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
 						%td
