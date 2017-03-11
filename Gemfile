@@ -27,6 +27,7 @@ gem 'haml'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'figaro'
+gem 'paperclip', '~> 5.1'
 
 group :development, :test do
   gem 'spring'

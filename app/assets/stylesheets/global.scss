@@ -51,7 +51,7 @@ h1.styled{
 	background-size: cover;
 	background-position: center;
 	
-	background-color: #999999;
+	background-color: #9999EE;
   	background-blend-mode: multiply;
 
 	h1{
@@ -62,16 +62,19 @@ h1.styled{
 .line-picture{
 	 .modules:nth-child(1){
 	 	background-image: url(1.jpg);
-	 
+	 background-color: #03A9F4;
 	 }
 	 .modules:nth-child(2){
 	 	background-image: url(4.jpg);
+	 	background-color: #59ABE3;
 	 }
 	 .modules:nth-child(3){
 	 	background-image: url(2.jpg);
+	 	background-color: #1E8BC3;
 	 }
 	 .modules:nth-child(4){
 	 	background-image: url(5.jpg);
+	 	background-color: #446CB3;
 	 }
 }
 

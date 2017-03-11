@@ -15,10 +15,11 @@
     background-color: $main-color;
     
     .jumbotron{
+        
         background-color: inherit;
     	margin-bottom:0;
 
-        .jumbotron-slogan{   //Don't repeat Yourself
+        .jumbotron-slogan-header{   //Don't repeat Yourself
             font-size:82px;
             color: $white;
             font-weight: 100;
@@ -28,7 +29,7 @@
     }
 }
 
-.slogan{
+.slogan-wrapper{
 	display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -55,7 +56,7 @@
     	display: inline-block;
     
 
-		.main-slogan{     //Don't repeat Yourself
+		.main-slogan-header{     //Don't repeat Yourself
 			margin:0;
 			font-size:82px;
             color: $white;

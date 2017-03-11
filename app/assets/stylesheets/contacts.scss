@@ -52,3 +52,20 @@ $white: #ffffff;
 	 	}
  	}
  }
+
+ input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: $white !important;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: $white !important;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: $white !important;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: $white !important;
+}

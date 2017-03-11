@@ -1,0 +1,21 @@
+// Place all the styles related to the admin/pictures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+input.place-color:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: red !important;
+}
+input.place-color::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: red !important;
+}
+input.place-color:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: red !important;
+}
+input.place-color::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: red !important;
+}

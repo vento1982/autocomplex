@@ -1,8 +1,8 @@
 - products.each do |product|
 	.col-md-12{:class => ["#{product.title}","modules"]}
-		.slogan
+		.slogan-wrapper
 			.slogan-content
-				%h1.main-slogan= product.title.titleize
+				%h1.main-slogan-header= product.title.titleize
 				%p= simple_format(truncate(product.description, length: 90))
 				.btn-wrapper
 					= link_to "Learn more", product_path(product), class: "btn btn-primary btn-lg main-btn"

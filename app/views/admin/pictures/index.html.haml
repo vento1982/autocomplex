@@ -1,0 +1,4 @@
+=link_to "New pictures", new_admin_picture_path, class: "btn btn-primary"
+%h1#picture-quantity W Twojej galeri znajduje #{Picture.all.count} zdjęć. 
+- @pictures.each do |picture|
+	%div= image_tag picture.image.url(:medium)

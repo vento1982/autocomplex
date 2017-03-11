@@ -11,7 +11,8 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :min_max
     b.optional :readonly
-    #b.use :label, class: 'control-label'
+    # wylacz w raize koneicznosco
+    b.use :label, class: 'control-label'
 
     b.use :input, class: 'form-control'
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
