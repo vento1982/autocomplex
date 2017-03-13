@@ -1,4 +1,23 @@
 =link_to "New pictures", new_admin_picture_path, class: "btn btn-primary"
 %h1#picture-quantity W Twojej galeri znajduje #{Picture.all.count} zdjęć. 
-- @pictures.each do |picture|
-	%div= image_tag picture.image.url(:medium)
+.row
+	.col-md-10.col-md-offset-1
+		%table.table.table-striped
+			%thead
+				%tr
+					%td Title
+					%td Image
+					%td Actions
+			%tbody
+				- @pictures.each do |picture|
+					%tr
+						%td= picture.name
+						%td= image_tag picture.image.url(:thumb)
+						%td
+							-if user_signed_in?
+								= link_to admin_picture_path(picture), id: 'show-picture', class: 'btn btn-default btn-xs' do
+									%span.fa.fa-search
+								= link_to edit_admin_picture_path(picture), class: 'btn btn-default btn-xs' do
+									%span.fa.fa-pencil
+								= link_to admin_picture_path(picture), method: :delete, data: {confirm: 'Are You sure ?'}, class: 'btn-default btn-xs' do
+									%span.fa.fa-trash

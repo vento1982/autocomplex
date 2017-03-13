@@ -97,7 +97,16 @@ header{
  		height:45vh;
  	}
  }
-
+.table-striped>thead>tr{
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #cccccc;
+	color: $txt-main-color;
+}
+.table-striped>tbody>tr:nth-child(odd){
+	background-color: #dfefff;
+	color: $txt-main-color;
+}
 
  /* contact form */
 

@@ -1,0 +1,4 @@
+= simple_form_for [:admin, @picture] do |f|
+	= f.input :name, input_html: {class: 'place-color'}
+	= f.input :image, as: :file
+	= f.button :submit, 'Add picture'

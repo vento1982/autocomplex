@@ -1,24 +1,29 @@
 .row
+	.col-md-10
+		= search_form_for [:admin, @q] do |f|
+			= f.text_field :title_cont
+			= f.submit
 	.col-md-10.col-md-offset-1
+		
 		%table.table.table-striped
 			%thead
 				%tr
-					%td Title
-					%td Description
-					%td Created at
-					%td Actions
+					%th= sort_link(@q, :title, 'Title')
+					%th= sort_link(@q, :description, 'Description')
+					%th= sort_link(@q, :created_at, 'Created at')
+					%th Actions
 			%tbody
 				- products.each do |product|
 					%tr
-						%td= product.title.titleize
-						%td= simple_format(truncate(product.description, length:30))
-						%td= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
+						%td.product-name= product.title.titleize
+						%td.product-desc= simple_format(truncate(product.description, length:30))
+						%td.product-data= product.created_at.strftime('%d-%m-%Y %H:%M:%S')
 						%td
 							- if user_signed_in?
-								= link_to admin_product_path(product), class: "btn btn-primary btn-xs" do
-									%span.fa.fa-pencil Show 
-								= link_to edit_admin_product_path(product), class: "btn btn-warning btn-xs" do
-									%span.fa.fa-pencil Edit
-								= link_to admin_product_path(product), method: :delete, data: {confirm: "Are You sure ?"},  class: "btn btn-danger btn-xs" do
-									%span.fa.fa-trash Delete 
+								= link_to admin_product_path(product), class: "btn btn-default btn-xs" do
+									%span.fa.fa-search
+								= link_to edit_admin_product_path(product), class: "btn btn-default btn-xs" do
+									%span.fa.fa-pencil
+								= link_to admin_product_path(product), method: :delete, data: {confirm: "Are You sure ?"},  class: "btn btn-default btn-xs" do
+									%span.fa.fa-trash
 						

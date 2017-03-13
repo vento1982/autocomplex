@@ -3,7 +3,8 @@ class Admin::ProductsController < Admin::BaseController
 	#before_action :only_owners, only: [ :edit, :update, :destroy ]
 
 	def index
-		@products = Product.all
+		@q = Product.ransack(params[:q])
+		@products = @q.result(distinct: true)
 	end
 
 	def new
