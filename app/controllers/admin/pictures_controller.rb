@@ -1,9 +1,10 @@
 class Admin::PicturesController < Admin::BaseController
 
-	before_action :find_picture, only: [:show, :edit, :update]
+	before_action :find_picture, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@pictures = Picture.all
+		@q = Picture.ransack(params[:q])
+		@pictures = @q.result(distinct: true)
 	end
 	
 	def new
@@ -31,6 +32,12 @@ class Admin::PicturesController < Admin::BaseController
 	def update
 		if @picture.update_attributes(picture_params)
 			redirect_to admin_picture_path(@picture)
+		end
+	end
+
+	def destroy
+		if @picture.destroy
+			redirect_to admin_pictures_path
 		end
 	end
 

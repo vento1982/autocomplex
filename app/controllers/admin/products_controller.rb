@@ -37,8 +37,9 @@ class Admin::ProductsController < Admin::BaseController
 	end
 
 	def destroy
-		@product.destroy
-		redirect_to admin_products_path
+		if @product.destroy
+			redirect_to admin_products_path
+		end
 	end
 
 	private

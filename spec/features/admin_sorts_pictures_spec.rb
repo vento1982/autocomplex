@@ -2,48 +2,35 @@ require 'rails_helper'
 require_relative '../support/admin_page'
 
 feature 'sort products' do
-	
-	let(:admin_page) { AdminPage.new}
-	
-	
 
-	let(:user) { FactoryGirl.create(:user)}
-
+	let(:user) { FactoryGirl.create(:user) }
+	let(:admin_page) { AdminPage.new }
+	
 	background do
 		admin_page.visit_page.login_as(user)
 		expect(page).to have_content('Logout')
-		visit admin_products_path
 		
-	end
+		visit admin_pictures_path
 
+	end
+	
 	scenario 'by name' do
-		FactoryGirl.create(:product, title: 'Product Y')
-		FactoryGirl.create(:product, title: 'Product X')
+		FactoryGirl.create(:picture, name: 'Picture B')
+		FactoryGirl.create(:picture, name: 'Picture A')
+
+		click_link 'Title'
+		pictures = page.all('td.picture-title').map(&:text)
 		
-		click_link "Title"
-		
-		products_name = page.all('td.product-name').map(&:text)
-		expect(products_name).to eq(['Product X', 'Product Y'])
+		expect(pictures).to eq(['Picture A', 'Picture B'])
 	end
 
-	scenario 'by description' do
-		FactoryGirl.create(:product, title: 'Extra', description: 'Content 12')
-		FactoryGirl.create(:product, title: 'Extra 2', description: 'Content 10')
-
-		click_link 'Description'
-
-		products_description = page.all('td.product-desc').map(&:text)
-		expect(products_description).to eq(['Content 10', 'Content 12'])
-	end
-
-	scenario 'by data' do
-		product_1 = FactoryGirl.create(:product, title:'Mistrz1')
-		product_2 = FactoryGirl.create(:product, title: 'Mistrz2')
+	scenario 'by data created' do
+		picture_1 = FactoryGirl.create(:picture)
+		picture_2 = FactoryGirl.create(:picture)
 
 		click_link 'Created at'
-
-		products_data = page.all('td.product-data').map(&:text)
-		expect(products_data).to eq([product_1.created_at, product_2.created_at])
+		pictures = page.all('td.picture-date').map(&:text)
+		
+		expect(pictures).to eq([picture_1.created_at.to_s, picture_2.created_at.to_s])
 	end
-
 end

@@ -1,18 +1,27 @@
-=link_to "New pictures", new_admin_picture_path, class: "btn btn-primary"
-%h1#picture-quantity W Twojej galeri znajduje #{Picture.all.count} zdjęć. 
+.row
+	.col-md-10.col-md-offset-1
+		.row
+			.col-md-8
+				%h1#picture-quantity This gallery containe #{Picture.all.count} #{"photo".pluralize(Picture.all.count)}. 
+			.col-md-4
+				=link_to "New pictures", new_admin_picture_path, class: "btn btn-primary"
 .row
 	.col-md-10.col-md-offset-1
 		%table.table.table-striped
 			%thead
 				%tr
-					%td Title
-					%td Image
-					%td Actions
+					%th #
+					%th= sort_link(@q, :name, 'Title')
+					%th Images
+					%th= sort_link(@q, :created_at, 'Created at')
+					%th Actions
 			%tbody
-				- @pictures.each do |picture|
+				- @pictures.each_with_index do |picture,index|
 					%tr
-						%td= picture.name
+						%td= index + 1
+						%td.picture-title= picture.name
 						%td= image_tag picture.image.url(:thumb)
+						%td.picture-date= picture.created_at
 						%td
 							-if user_signed_in?
 								= link_to admin_picture_path(picture), id: 'show-picture', class: 'btn btn-default btn-xs' do
