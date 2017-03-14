@@ -29,6 +29,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'figaro'
 gem 'paperclip', '~> 5.1'
 gem 'masonry-rails', '~> 0.2.4'
+gem 'jquery-turbolinks'
 gem 'ransack', '~> 1.7'
 
 group :development, :test do

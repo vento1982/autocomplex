@@ -1,5 +1,8 @@
 .row
 	.col-md-8.col-md-offset-2
-		- @pictures.each do |picture|
-			= picture.name
-			= image_tag picture.image.url(:medium)
+		#pics.transitions-enabled
+			- @pictures.each do |picture|
+				.box
+					= image_tag picture.image.url(:medium)
+					
+					
