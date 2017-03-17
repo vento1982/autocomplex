@@ -16,5 +16,8 @@
 !/log/.keep
 /tmp
 
+# Ignore all img files
+/public/system/pictures/images/*
+
 # Ignore application configuration
 /config/application.yml
