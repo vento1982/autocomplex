@@ -1,7 +1,8 @@
 class Admin::AdsController < Admin::BaseController 
 
 	def index
-		@ads = Ad.page(params[:page]).per(20)
+		@q = Ad.ransack(params[:q])
+		@ads = @q.result(distinct: true).page(params[:page]).per(20)
 	end
 
 	def new

@@ -2,14 +2,22 @@
 	.col.md-10.col-md-offset-1
 		=link_to 'Add ad', new_admin_ad_path, class: 'btn btn-primary'
 .row
+	.col-md-10.col-md-offset-1
+		.search-form
+			= search_form_for [:admin, @q] do |f|
+				= f.text_field :title_cont
+				= f.text_field :description_cont
+				= f.text_field :validity
+				= f.button :submit, class: "btn btn-default btn-xs"
+.row
 	.col.md-10.col-md-offset-1
 		%table.table.table-striped
 			%thead
 				%tr
 					%th #
-					%th Title
-					%th Description
-					%th Validity
+					%th= sort_link(@q, :title, 'Title')
+					%th= sort_link(@q, :description, 'Description')
+					%th= sort_link(@q, :validity, 'Validity')
 					%th Actions
 			%tbody
 				- @ads.each_with_index do |ad, index|
