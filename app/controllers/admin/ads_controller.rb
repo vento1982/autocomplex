@@ -1,7 +1,7 @@
 class Admin::AdsController < Admin::BaseController 
 
 	def index
-		@ads = Ad.page(params[:id]).per(10)
+		@ads = Ad.page(params[:page]).per(20)
 	end
 
 	def new

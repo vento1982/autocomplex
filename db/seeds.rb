@@ -16,3 +16,12 @@ print "Pictures "
 end
 puts "End"
 
+print 'Start adding Ads'
+
+(1..40).each do |ad|
+	Ad.create!(title: Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, validity: Faker::Time.forward(23,:morning))
+	print'.'
+end
+
+print 'All ads has beeen added!!!'
+
