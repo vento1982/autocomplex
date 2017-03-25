@@ -42,9 +42,15 @@ RSpec.describe Admin::PicturesController, type: :controller do
 				get :new
 				expect(response).to redirect_to new_user_session_path
 			end
+
 			it 'assigns flash message' do
 				get :new
 				expect(flash[:alert]).to eq('You need to sign in or sign up before continuing.')
+			end
+
+			it 'not assigns to @picture' do
+				get :new
+				expect(assigns(:picture)).to eq(nil)
 			end
 		end
 
@@ -60,7 +66,7 @@ RSpec.describe Admin::PicturesController, type: :controller do
 				get :new
 				expect(response).to render_template(:new)
 			end
-			it ' assigns new pictures to template' do
+			it 'assigns new pictures to template' do
 				get :new
 				expect(assigns(:picture)).to be_a_new(Picture)
 			end
@@ -77,6 +83,11 @@ RSpec.describe Admin::PicturesController, type: :controller do
 				get :show, id: picture.id
 
 				expect(response).to redirect_to new_user_session_path
+			end
+
+			it 'assigns flasg message' do
+				get :show, id: picture
+				expect(assigns(flash[:alert])).to eq('You need to sign in or sign up before continuing.')
 			end
 
 			it 'not assigns @picture' do
@@ -138,24 +149,33 @@ RSpec.describe Admin::PicturesController, type: :controller do
 	describe 'GET edit' do
 		
 		let(:picture) { FactoryGirl.create(:picture) }
-		let(:user) { FactoryGirl.create(:user) }
-
-		before do
-			sign_in(user)
+		
+		context 'guest user' do
+			it 'redirects to login page' do
+				get :edit, id: picture.id
+				expect(response).to redirect_to new_user_session_path
+			end
 		end
 
-		it 'renders :edit template' do
-			get :edit, id: picture.id
+		context 'authenticates user' do
+			let(:user) { FactoryGirl.create(:user) }
 
-			expect(response).to render_template(:edit)
+			before do
+				sign_in(user)
+			end
+
+			it 'renders :edit template' do
+				get :edit, id: picture.id
+
+				expect(response).to render_template(:edit)
+			end
+
+			it 'assigns @picture' do
+				get :edit, id: picture.id
+
+				expect(assigns(:picture)).to eq(picture)
+			end
 		end
-
-		it 'assigns @picture' do
-			get :edit, id: picture.id
-
-			expect(assigns(:picture)).to eq(picture)
-		end
-
 	end
 
 	describe 'PUT update' do
@@ -168,7 +188,8 @@ RSpec.describe Admin::PicturesController, type: :controller do
 		end
 
 		context 'valid data' do
-			let(:valid_data) { FactoryGirl.attributes_for(:picture)}			
+			let(:valid_data) { FactoryGirl.attributes_for(:picture,title: 'New title')}			
+			
 			it 'redirects to picture#show' do
 				put :update, id: picture.id, picture: valid_data
 
@@ -176,12 +197,44 @@ RSpec.describe Admin::PicturesController, type: :controller do
 			end
 
 			it 'update picture in the database' do
-
+				put :update, id: picture.id, picture: valid_data
+				ad.reload
+				expect(picture.title).to eq('New title')
 			end
 		end
 		
 		context 'invalid data' do
 			#let(:invalid_data) { FactoryGirl.attributes_for(:picture, image: fixture_file_upload('/spec/files/images/test.jpg'))}
+		end
+
+	end
+
+	describe 'DELETE destroy' do
+
+		context 'guest user' do
+
+		end
+
+		context 'authenticate user' do
+
+			let(:user) { FactoryGirl.create(:user) }
+			let(:picture) { FactoryGirl.create(:picture) }
+
+			before do
+				sign_in(user)
+			end
+
+			it 'redirects to pictures page' do
+				delete :destroy, id: picture.id
+				expect(response).to redirect_to(admin_pictures_path)
+			end
+
+			it 'deletes picture from the database' do
+				expect{
+					delete :destroy, id: picture.id
+					}.to change(Picture, :count).by(-1)
+			end
+
 		end
 
 	end

@@ -1,0 +1,28 @@
+.row
+	.col.md-10.col-md-offset-1
+		=link_to 'Add ad', new_admin_ad_path, class: 'btn btn-primary'
+.row
+	.col.md-10.col-md-offset-1
+		%table.table.table-striped
+			%thead
+				%tr
+					%th #
+					%th Title
+					%th Description
+					%th Validity
+					%th Actions
+			%tbody
+				- @ads.each_with_index do |ad, index|
+					%tr
+						%td= index + 1
+						%td= ad.title
+						%td= ad.description
+						%td= ad.validity
+						%td
+							- if user_signed_in?
+								= link_to admin_ad_path(ad), class: 'btn btn-default btn-xs' do
+									%span.fa.fa-search
+								= link_to edit_admin_ad_path(ad), class: 'btn btn-default btn-xs' do
+									%span.fa.fa-pencil
+								= link_to admin_ad_path(ad), method: :delete, class: 'btn btn-default btn-xs', date: {Confirm: 'Are You sure ?'} do
+									%span.fa.fa-trash

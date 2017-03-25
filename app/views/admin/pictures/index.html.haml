@@ -18,7 +18,7 @@
 			%tbody
 				- @pictures.each_with_index do |picture,index|
 					%tr
-						%td= index + 1
+						%td= index + (params[:page].to_i * 10) + 1
 						%td.picture-title= picture.name
 						%td= image_tag picture.image.url(:thumb)
 						%td.picture-date= picture.created_at
@@ -30,3 +30,6 @@
 									%span.fa.fa-pencil
 								= link_to admin_picture_path(picture), method: :delete, data: {confirm: 'Are You sure ?'}, class: 'btn-default btn-xs' do
 									%span.fa.fa-trash
+.row
+	.col-md-10.col-md-offset-1
+		= paginate @pictures

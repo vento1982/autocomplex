@@ -4,7 +4,7 @@ class Admin::PicturesController < Admin::BaseController
 
 	def index
 		@q = Picture.ransack(params[:q])
-		@pictures = @q.result(distinct: true)
+		@pictures = @q.result(distinct: true).page(params[:page]).per(10)
 	end
 	
 	def new
@@ -37,7 +37,7 @@ class Admin::PicturesController < Admin::BaseController
 
 	def destroy
 		if @picture.destroy
-			redirect_to admin_pictures_path
+			redirect_to admin_pictures_path, notice: 'Picture has been deleted.'
 		end
 	end
 

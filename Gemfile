@@ -31,6 +31,7 @@ gem 'paperclip', '~> 5.1'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'jquery-turbolinks'
 gem 'ransack', '~> 1.7'
+gem 'kaminari'
 
 group :development, :test do
   gem 'spring'
