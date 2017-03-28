@@ -14,7 +14,7 @@ class ContactForm
 	end
 
 	def submit
-		click_on 'Send'
+		click_on 'Submit your message'
 		self
 	end
 

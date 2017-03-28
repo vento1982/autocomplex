@@ -114,13 +114,13 @@ RSpec.describe Admin::ProductsController, type: :controller do
 			describe "GET edit" do
 				it "redirects to products page" do
 					get :edit, id: FactoryGirl.create(:product)
-					expect(response).to redirect_to(admin_products_path)
+					expect(response).to render_template(:edit)
 				end
 			end
 			describe "PUT update" do
 				it "redirect to products page" do
 					put :update, id: FactoryGirl.create(:product), product: FactoryGirl.attributes_for(:product)
-					expect(response).to redirect_to(admin_products_path)
+					expect(response).to redirect_to(admin_product_path(@product))
 				end
 			end
 			describe "DELETE destroy" do
@@ -177,7 +177,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
 			describe "DELETE destroy" do
 				it "redirect to products page" do
 					delete :destroy, id: product
-					expect(response).to redirect_to(root_path)
+					expect(response).to redirect_to(admin_products_path)
 				end
 				it "deletes product from database" do
 					delete :destroy, id: product

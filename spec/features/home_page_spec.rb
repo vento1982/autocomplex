@@ -3,6 +3,6 @@ require 'rails_helper'
 feature 'home page' do
 	scenario 'welcome message' do
 		visit('/')
-		expect(page).to have_content('Welcome')
+		expect(page).to have_content('Warsztat klasy europejskiej')
 	end
 end

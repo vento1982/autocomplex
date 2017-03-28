@@ -22,7 +22,7 @@
 			%tbody
 				- @ads.each_with_index do |ad, index|
 					%tr
-						%td= params[:page].to_i > 1 ? (params[:page].to_i * 10) + index + 1 : index + 1
+						%td= quantity_grater_then_ten(index)
 						%td= ad.title
 						%td= ad.description
 						%td= ad.validity

@@ -1,5 +1,7 @@
 class Admin::AdsController < Admin::BaseController 
 
+	before_action :find_ad, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@q = Ad.ransack(params[:q])
 		@ads = @q.result(distinct: true).page(params[:page]).per(20)
@@ -10,16 +12,12 @@ class Admin::AdsController < Admin::BaseController
 	end
 
 	def show
-		@ad = Ad.find(params[:id])
 	end
 
 	def edit
-		@ad = Ad.find(params[:id])
 	end
 
 	def update
-		@ad = Ad.find(params[:id])
-
 		if @ad.update_attributes(ad_params)
 			redirect_to admin_ad_path(@ad)
 		else
@@ -29,7 +27,7 @@ class Admin::AdsController < Admin::BaseController
 
 	def create
 		@ad =Ad.new(ad_params)
-
+		@ad.user_id = current_user.id
 		if @ad.save
 			redirect_to admin_ads_path, notice: 'Ad has been created.'
 		else
@@ -38,7 +36,6 @@ class Admin::AdsController < Admin::BaseController
 	end
 
 	def destroy
-		@ad = Ad.find(params[:id])
 		@ad.destroy
 		redirect_to admin_ads_path , notice: 'Ad has been deleted.'
 		
@@ -46,8 +43,12 @@ class Admin::AdsController < Admin::BaseController
 
 	private
 
+	def find_ad
+		@ad = Ad.find(params[:id])
+	end
+
 	def ad_params
-		params.require(:ad).permit(:title, :description, :validity)
+		params.require(:ad).permit(:title, :description, :validity, :user)
 	end
 
 end

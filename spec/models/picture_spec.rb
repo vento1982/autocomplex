@@ -23,7 +23,7 @@ RSpec.describe Picture, type: :model do
 			expect(picture.valid?).to be_falsy
 		end
 
-		it 'has belongs_to user association' do
+		it 'has belongs_to user' do
 			# 1 approach /integrations/
 
 			user = FactoryGirl.create(:user)

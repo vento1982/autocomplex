@@ -8,6 +8,6 @@ feature 'user visits pictures page' do
 		visit '/'
 		click_link 'Gallery'
 
-		expect(page).to have_content('Super cool picture in this gallery')
+		expect(page).to have_css('#pics')
 	end
 end

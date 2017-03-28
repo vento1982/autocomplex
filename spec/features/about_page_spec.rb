@@ -3,6 +3,6 @@ require 'rails_helper'
 feature 'about page' do
 	scenario 'about message' do
 		visit('/o-nas')
-		expect(page).to have_content('O firmie')		
+		expect(page).to have_content('Speed')		
 	end
 end

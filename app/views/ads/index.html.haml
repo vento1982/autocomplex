@@ -1,0 +1,11 @@
+.center-text
+	%h1.styled Ads
+.row
+	.col-md-8.col-md-offset-2
+		- @ads.each_slice(3) do |slice|
+			.row
+				- slice.each do |ad|
+					.col-md-4
+						%p= ad.title
+						%p= ad.description
+						%p= ad.validity

@@ -5,7 +5,7 @@ feature 'visits pictures page' do
 
 	let(:user) {FactoryGirl.create(:user)}
 	let(:admin_page){AdminPage.new}
-	FactoryGirl.create(:picture, name: 'Super cool picture!')
+
 
 
 	background do
@@ -16,7 +16,8 @@ feature 'visits pictures page' do
 	end
 
 	scenario 'should see pictures list' do
-		
+		FactoryGirl.create(:picture, name: 'Super cool picture!')
+		visit admin_pictures_path
 		expect(page).to have_content('Super cool picture!')
 	end
 

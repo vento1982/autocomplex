@@ -7,10 +7,10 @@ class PictureForm
 		self
 	end
 
-	def add_picture(attr = {})
+	def add_picture(params = {})
 		click_on('New picture')
-		fill_in('Name', with: attr.fetch(:name, 'good job'))
-		attach_file('Image','spec/files/images/test.jpg')
+		fill_in('Name', with: params.fetch(:name, 'good job'))
+		attach_file('Image',"#{Rails.root}/spec/files/images/" + params.fetch(:image, 'test.jpg'))
 		self
 	end
 

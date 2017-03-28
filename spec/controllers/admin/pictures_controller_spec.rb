@@ -85,9 +85,9 @@ RSpec.describe Admin::PicturesController, type: :controller do
 				expect(response).to redirect_to new_user_session_path
 			end
 
-			it 'assigns flasg message' do
+			it 'assigns flash message' do
 				get :show, id: picture
-				expect(assigns(flash[:alert])).to eq('You need to sign in or sign up before continuing.')
+				expect(flash[:alert]).to eq('You need to sign in or sign up before continuing.')
 			end
 
 			it 'not assigns @picture' do
@@ -230,9 +230,8 @@ RSpec.describe Admin::PicturesController, type: :controller do
 			end
 
 			it 'deletes picture from the database' do
-				expect{
-					delete :destroy, id: picture.id
-					}.to change(Picture, :count).by(-1)
+				delete :destroy, id: picture.id
+				expect(Picture.exists?(picture.id)).to be_falsy
 			end
 
 		end

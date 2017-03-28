@@ -7,5 +7,6 @@ class Picture < ActiveRecord::Base
   validates :user, presence: true
   #add some more  validatons for uploading files
   validates_attachment_presence :image
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :image, content_type: /\Aimage\/(jpeg|png)\z/
+
 end

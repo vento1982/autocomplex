@@ -16,7 +16,7 @@ gem 'puma'
 
 gem 'devise'
 gem 'letter_opener'
-gem 'carrierwave'
+#gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form'
 gem 'mail_form'
@@ -47,4 +47,5 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
 end

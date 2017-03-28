@@ -5,7 +5,7 @@ feature 'User visit products page' do
 	
 	let(:admin_page) {AdminPage.new}
 	let(:user) {FactoryGirl.create(:user)}
-	let!(:product) { FactoryGirl.create(:product, title: "Super tires", description: "Best quality")}
+	
 
 	background do
 		admin_page.visit_page.login_as(user)
@@ -14,8 +14,9 @@ feature 'User visit products page' do
 	end
 
 	scenario 'should see products list' do
-		expect(page).to have_content "Super tires"
-		expect(page).to have_content "Best quality"
+		FactoryGirl.create(:product, title: 'Super tires')
+		visit admin_products_path
+		expect(page).to have_content "Super Tires"
 	end
 
 	scenario 'only when sign in' do
