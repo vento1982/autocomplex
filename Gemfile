@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'puma'
-
+gem 'i18n', '~> 0.7.0'
 gem 'devise'
 gem 'letter_opener'
 #gem 'carrierwave'
@@ -22,7 +22,6 @@ gem 'simple_form'
 gem 'mail_form'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
-gem 'rails-i18n'
 gem 'haml'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'

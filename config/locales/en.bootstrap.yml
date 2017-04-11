@@ -3,6 +3,10 @@
 
 en:
   breadcrumbs:
+    ads:
+      root: "Home"
+      index: "Ads"
+      show: "%{model}"
     application:
       root: "Index"
     pages:

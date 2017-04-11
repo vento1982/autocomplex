@@ -1,5 +1,5 @@
-$second-color: #00C566;
-$white: #ffffff;
+@import 'colors_and_fonts';
+@import 'mixins';
 
 .fa-stack{
 	margin-bottom: 10px;
@@ -10,8 +10,8 @@ $white: #ffffff;
 }
 
 
-.bg_form{
-	padding: 100px 0;
+.row.green{
+	padding: 40px 0;
 	background-color: $second-color;
 }
 
@@ -43,6 +43,10 @@ $white: #ffffff;
 
 	 	-webkit-transition: font-size .25s ease-in, border-color .5s ease-in;
 	 	transiton: font-size .25s ease-in, border-color .5s ease-in;
+
+	 	@include placeholder{
+			color: $white !important;
+		}
 	 	
 	 	&:focus{
 	 		
@@ -52,20 +56,3 @@ $white: #ffffff;
 	 	}
  	}
  }
-
- input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: $white !important;
-}
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: $white !important;
-}
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: $white !important;
-}
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: $white !important;
-}

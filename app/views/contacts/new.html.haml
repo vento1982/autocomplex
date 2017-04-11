@@ -1,40 +1,42 @@
-.center-text
-	%h1.styled Kontakt
-.row.first-row
-	.col-md-8.col-md-offset-2
-		.row.text-center
-			.col-md-3.col-xs-6
-				.contact-info
-					= fa_stacked_icon "home inverse", base: "circle", class: "fa-2x"
-					%p 
-						Siedziba:
-						%br/ 
-						E.Orzeszkowej 1/15
-						%br/ 
-						32-300 Olkusz
-			.col-md-3.col-xs-6
-				.contact-info
-					= fa_stacked_icon "truck inverse", base: "circle", class: "fa-2x"
-					%p 
-						Warsztat:
-						%br/
-						Tworzeń 127
-						%br/
-						41-303 Dąbrowa Górnicza
-			.col-md-3.col-xs-6
-				.contact-info		
-					= fa_stacked_icon "phone inverse", base: "circle", class: "fa-2x"
-					%p 
-						+48 555 555 555 
-						%br/
-						+48 512 481 646
-			.col-md-3.col-xs-6
-				.contact-info
-					= fa_stacked_icon "envelope inverse", base: "circle", class: "fa-2x"
-					%p= mail_to "biuro@autocomplex.pl"
-							 
+%section.padded-section
+	.center-text
+		%h1.styled Kontakt
+	.row.first-row
+		.col-md-8.col-md-offset-2
+			.row.text-center
+				.col-md-3.col-xs-6
+					.contact-info
+						= fa_stacked_icon "home inverse", base: "circle", class: "fa-2x"
+						%p 
+							Siedziba:
+							%br/ 
+							E.Orzeszkowej 1/15
+							%br/ 
+							32-300 Olkusz
+				.col-md-3.col-xs-6
+					.contact-info
+						= fa_stacked_icon "truck inverse", base: "circle", class: "fa-2x"
+						%p 
+							Warsztat:
+							%br/
+							Tworzeń 127
+							%br/
+							41-303 Dąbrowa Górnicza
+				.col-md-3.col-xs-6
+					.contact-info		
+						= fa_stacked_icon "phone inverse", base: "circle", class: "fa-2x"
+						%p 
+							+48 555 555 555 
+							%br/
+							+48 512 481 646
+				.col-md-3.col-xs-6
+					.contact-info
+						= fa_stacked_icon "envelope inverse", base: "circle", class: "fa-2x"
+						%p= mail_to "biuro@autocomplex.pl"
+						 
 =render partial: 'form', locals: {contact: @contact}
 
-.row.google_map
-	.col-md-12
-		%iframe{:class => "maps", :frameborder => "0", :src => "https://www.google.com/maps/embed/v1/place?key=#{ENV["GOOGLE_MAPS"]}&q=Tworzen+127,Dabrowa+Gornicza", :allowfullscreen => "true"}
+%section
+	.row.google_map
+		.col-md-12
+			%iframe{:class => "maps", :frameborder => "0", :src => "https://www.google.com/maps/embed/v1/place?key=#{ENV["GOOGLE_MAPS"]}&q=Tworzen+127,Dabrowa+Gornicza", :allowfullscreen => "true"}

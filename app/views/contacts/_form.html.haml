@@ -1,9 +1,10 @@
-.row.bg_form
-	.col-md-4.col-md-offset-4
-		.contact-form
-			= simple_form_for @contact do |f|
-				= f.input :name, placeholder: "What's Your name"
-				= f.input :email, placeholder: "Write Your e-mail address"
-				= f.input :message, placeholder: "What Do You want to tell us"
-				.btn-wrapper
-					= f.button :submit, 'Submit your message', class: "btn btn-lg btn-primary "
+%section
+	.row.green
+		.col-md-4.col-md-offset-4
+			.contact-form
+				= simple_form_for @contact do |f|
+					= f.input :name, placeholder: "What's Your name"
+					= f.input :email, placeholder: "Write Your e-mail address"
+					= f.input :message, placeholder: "What Do You want to tell us"
+					.btn-wrapper
+						= f.button :submit, 'Submit your message', class: "btn btn-lg btn-primary "

@@ -1,0 +1,26 @@
+%section
+	%nav
+		.row.carrer-nav
+			.col-md-12
+				.row
+					.col-md-8.col-md-offset-2
+						.carrer-nav_container
+							= link_to ads_path, class: 'carrer-nav_back' do
+								=fa_icon "arrow-left", text: 'All ads'
+%section.carrer-offer
+	.row
+		.col-md-8.col-md-offset-2
+			.row
+				.col-md-8
+					%h1.carrer-offer__title= @ad.title
+					%div.carrer-offer__desc
+						%p= Faker::Lorem.paragraph(20,true)
+						%p= Faker::Lorem.paragraph(20,true)
+						%p= Faker::Lorem.paragraph(20,true)
+
+				.col-md-4
+					.carrer-offer__apply-box
+						%p.carrer-offer__caption Apply now !
+						%p.carrer-offer__caption Please fill the from below.
+						%p.carrer-offer__validity= "Validity: #{ @ad.validity.strftime("%d %B %Y") }"
+						=render 'jobs/form'

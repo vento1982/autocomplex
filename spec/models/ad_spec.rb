@@ -32,6 +32,11 @@ RSpec.describe Ad, type: :model do
   		expect(ad.user).to eq(user)
   	end
 
+    it 'has_many job' do
+      j = Ad.reflect_on_association(:jobs)
+      expect(j.macro).to eq(:has_many)
+    end
+
   end
 
 end

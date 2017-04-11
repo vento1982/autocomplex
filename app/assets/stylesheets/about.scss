@@ -1,17 +1,4 @@
-// Colors Variables
-
-$gray: #666666;
-$main-color: #00578F;
-$white: #fff;
-$second-color: #00C566;
-
-$txt-main-color: #4F5050;
-
-// fonts veriables
-$roboto: 'Roboto', sans-serif;
-
-
-//mixins
+@import 'colors_and_fonts';
 
 @mixin transform-translate($x,$y){
 	-ms-transform : translate($x,$y);
@@ -19,15 +6,11 @@ $roboto: 'Roboto', sans-serif;
 	transform: translate($x,$y);
 }
 
-
-
-
 .about-container{
 	padding-bottom: 60px;	
 }
 
 .line_layout{
-	padding: 60px 0;
 	border-bottom-width: 1px;
 
 	.line_layout_title{

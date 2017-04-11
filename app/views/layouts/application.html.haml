@@ -11,6 +11,16 @@
 	=bootstrap_flash
 	%main
 		.container-fluid
+			-if params[:controller] != 'pictures'
+				.row.wrapper-jumbotron
+					.col-md-12				
+						.jumbotron
+							.container
+								%h1.jumbotron-slogan-header 
+									-if params[:controller] == 'ads' && params[:action] == 'index'
+										We are hiring! 
+									- if params[:controller] == 'static' && params[:action] == 'about'
+										Great choose !!!	
 			=yield
 	%footer{:class => 'site-footer'}
 		=render partial: 'layouts/footer'

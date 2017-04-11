@@ -1,22 +1,20 @@
- // color veriables
- $gray: #666666;
- $main-color: #00578F;
- $white: #fff;
- $second-color: #007D41;
+@import 'colors_and_fonts';
 
- $txt-main-color: #4F5050;
-
- // fonts veriables
- $roboto: 'Roboto', sans-serif;
-
-*{
+*, :after, :before{
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
+}
+
+body{
 	font-family: $roboto;
 }
 
+.padded-section{
+	padding: 60px 0;
+}
+
 .center-text{
-	margin: 60px auto;
+	margin: 0 auto 60px auto;
 	text-align: center;
 }
 
@@ -41,7 +39,7 @@ h1.styled{
 
 .first-row{
 	margin-top:60px;
-	margin-bottom: 60px;
+	//margin-bottom: 60px;
 }
  .modules{
 
@@ -108,6 +106,10 @@ h1.styled{
 
 		&:hover{
 			text-decoration: none;
+		}
+
+		&:visited{
+			color: $white;
 		}
 	}
 }

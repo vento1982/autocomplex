@@ -1,3 +1,152 @@
-// Place all the styles related to the Ads controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors_and_fonts';
+@import 'mixins';
+
+.carrer-nav{
+	background-color: #fafafa;
+	border-bottom: 1px solid #f0f0f0;
+	margin-bottom: 50px;
+
+	.carrer-nav_container{
+		position: relative;
+
+		.carrer-nav_back{
+			color: $gray;
+			display: block;
+			font-size: 16px;
+			padding: 20px 0;
+
+			&:hover{
+				color: $main-color;
+			}
+
+			.fa{
+				margin-right:8px;
+			}
+		}
+	}
+}
+
+.carrer-offer{
+
+	padding-bottom: 30px; 
+
+	.carrer-offer__title{
+		color: $main-color;
+		font-size: 48px;
+		font-weight: 100;
+
+		&:after{
+			background-color: $main-color;
+			content: "";
+			display: block;
+			height:1px;
+			position: relative;
+			top: 34px;
+			width:50px;
+
+		}
+	}
+
+	.carrer-offer__desc{
+		
+		color: $txt-main-color;
+		font-size: 18px;
+		padding-top:50px;
+
+		p{
+			line-height: 30px;
+			margin-bottom: 40px;
+		}
+	}
+
+	.carrer-offer__apply-box{
+
+		border: 1px solid #f0f0f0;
+		margin-top:34px;
+		padding: 20px;
+
+		.carrer-offer__caption{
+			font-size: 22px;
+			font-weight: light;
+		}
+
+		.carrer-offer__validity{
+			color: $txt-second-color;
+			font-weight: bold;
+		}
+
+		.form-control{
+			border: none;
+			border-bottom: 1px solid #f0f0f0;;
+			border-radius: 0;
+			box-shadow: none;
+			font-size: 18px;
+			margin: 40px 0;
+
+			@include placeholder{
+
+				color: $txt-main-color !important;
+				font-size: 18px;
+				//font-weight: bold;
+
+			}
+		}
+
+		.form-reset{
+			float:left;
+		}
+
+		.form-submit{
+
+			margin-left:54px;
+
+			.carrer-offer__btn-apply{
+				background-color: $second-color;
+				color: $white;
+				width: 100%;
+			}
+		}
+	}
+
+}
+
+.ad-boxes{ 
+	
+	text-align: center;
+	
+	h3{
+		color: $main-color;
+	}
+
+	p{
+		color: $txt-main-color;
+	}
+	
+	.thumbnail{
+		transition: all .4s ease;
+
+		&:hover{
+			transform: scale(1.1);
+			box-shadow: 0px 8px 70px -25px rgba(0,0,0,.5);
+			border-color: $second-color;
+		}
+	}
+
+	.row:nth-child(odd){
+		.ad-box:nth-child(odd){
+			.thumbnail{
+ 				background-color: $box-main-color;
+ 			}
+ 		}
+ 	}
+
+ 	.row:nth-child(even){
+		.ad-box:nth-child(even){
+			.thumbnail{
+ 				background-color:  $box-second-color;
+ 			}
+ 		}
+ 	}
+
+}
+

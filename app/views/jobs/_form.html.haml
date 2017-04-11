@@ -1,0 +1,9 @@
+= simple_form_for ([@ad, @ad.jobs.build]) do |f|
+	= f.input :name, placeholder: 'Name', label: false
+	= f.input :email, placeholder: 'Email', label: false
+	= f.input :message, placeholder: 'Message', label: false
+	.form-reset
+		= f.button :button, type: 'reset', class: 'carrer-offer__btn-reset' do
+			%span.fa.fa-undo
+	.form-submit
+		= f.button :submit, 'Apply now', class: 'carrer-offer__btn-apply'

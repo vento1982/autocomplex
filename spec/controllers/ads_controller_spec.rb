@@ -23,4 +23,19 @@ RSpec.describe AdsController, type: :controller do
 			expect(assigns(:ads)).to eq([ad1,ad2])
 		end
 	end
+
+	describe 'GET show' do
+
+		let(:ad) { FactoryGirl.create(:ad)}
+
+		it 'renders show template' do
+			get :show, id: ad
+			expect(response).to render_template(:show)
+		end
+
+		it 'assigns ad to @ad' do
+			get :show, id: ad
+			expect(assigns(:ad)).to eq(ad)
+		end
+	end
 end

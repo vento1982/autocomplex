@@ -1,11 +1,15 @@
-.center-text
-	%h1.styled Ads
-.row
-	.col-md-8.col-md-offset-2
-		- @ads.each_slice(3) do |slice|
-			.row
-				- slice.each do |ad|
-					.col-md-4
-						%p= ad.title
-						%p= ad.description
-						%p= ad.validity
+%section.padded-section
+	.center-text
+		%h1.styled Ads
+	.row
+		.col-md-8.col-md-offset-2.ad-boxes
+			- @ads.each_slice(3) do |slice|
+				.row
+					- slice.each do |ad|
+						.col-sm-6.col-md-4.ad-box
+							.thumbnail
+								.caption
+									%h3= ad.title
+									%p= ad.description	
+									%p= "Ważne do: #{ad.validity.strftime("%d %B %Y")}"
+									= link_to "Apply Now", ad_path(ad), class: "btn btn-primary"

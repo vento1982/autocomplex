@@ -177,9 +177,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (4.0.9)
-      i18n (~> 0.7)
-      railties (~> 4.0)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -277,6 +274,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails (~> 4.7, >= 4.7.0.1)
   haml
+  i18n (~> 0.7.0)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -288,7 +286,6 @@ DEPENDENCIES
   paperclip (~> 5.1)
   puma
   rails (= 4.2.6)
-  rails-i18n
   ransack (~> 1.7)
   rspec-rails
   sass-rails (~> 5.0)
