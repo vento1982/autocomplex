@@ -3,8 +3,8 @@
 		.col-md-4.col-md-offset-4
 			.contact-form
 				= simple_form_for @contact do |f|
-					= f.input :name, placeholder: "What's Your name"
-					= f.input :email, placeholder: "Write Your e-mail address"
-					= f.input :message, placeholder: "What Do You want to tell us"
+					= f.input :name, placeholder: "What's Your name", label: false
+					= f.input :email, placeholder: "Write Your e-mail address", label: false
+					= f.input :message, placeholder: "What Do You want to tell us", label: false
 					.btn-wrapper
 						= f.button :submit, 'Submit your message', class: "btn btn-lg btn-primary "

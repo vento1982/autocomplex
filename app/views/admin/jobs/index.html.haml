@@ -1,0 +1,24 @@
+.row
+	.col-md-10.col-md-offset-1
+		%table.table.table-striped
+			%thead
+				%tr
+					%th #
+					%th Name
+					%th E-mail
+					%th Message
+					%th Ad title
+					%th Data of application
+					%th Data of completed
+			%tbody
+				- @jobs.each_with_index do |job, index|
+					%tr
+						%td= quantity_grater_then_ten(index) 
+						%td= job.name
+						%td= job.email
+						%td= job.message
+						%td= job.ad.title
+						%td= job.created_at.strftime("%d %B %Y")
+						%td
+							= link_to 'Completed', complete_admin_job_path(job), method: :patch
+							= link_to 'Delete', admin_job_path(job), method: :delete, data: {confirm: 'Are You sure?'}

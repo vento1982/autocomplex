@@ -12,7 +12,7 @@ feature 'create new product' do
 		admin_page.visit_page.login_as(user)
 	end
 
-	scenario 'create new product with valid data' do
+	scenario 'with valid data' do
 		product_form.visit_page.add_product(title: "Tire", description: "Super cool spare tire!").submit
 
 		expect(page).to have_content("Product has been created")

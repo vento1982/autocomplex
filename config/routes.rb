@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'admin'
+  
   namespace :admin do
+  
     root to: "products#index"
     resources :products
     resources :pictures
     resources :ads
+
+    resources :jobs do 
+      member do
+        patch :complete
+      end
+    end
+
   end
 
   root to: "products#index"

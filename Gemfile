@@ -47,4 +47,5 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'timecop'
 end

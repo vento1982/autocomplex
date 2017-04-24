@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407154958) do
+ActiveRecord::Schema.define(version: 20170423114842) do
 
   create_table "ads", force: :cascade do |t|
     t.string   "title"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20170407154958) do
     t.string   "email"
     t.text     "message"
     t.integer  "ad_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "completed_at"
   end
 
   add_index "jobs", ["ad_id"], name: "index_jobs_on_ad_id"

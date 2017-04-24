@@ -26,8 +26,9 @@ feature 'apply form' do
 		fill_in 'Email', with: ''
 		fill_in 'Message', with: 'Test msg'
 		click_on  'Apply now'
-
-		expect(page).to have_content("can't be blank")
+		
+		expect(page).to have_content("Cannot send message.")
+		#expect(page).to have_content("can't be blank")
 	end
 
 	scenario 'does not deliver message wit a missing name' do
@@ -37,7 +38,8 @@ feature 'apply form' do
 		fill_in 'Message', with: 'New msg'
 		click_on 'Apply now'
 
-		expect(page).to have_content("can't be blank")
+		expect(page).to have_content("Cannot send message.")
+		#expect(page).to have_content("can't be blank")
 	end
 
 	scenario 'does not deliver message with a missing message' do
@@ -47,6 +49,7 @@ feature 'apply form' do
 		fill_in 'Message', with: ''
 		click_on 'Apply now'
 
-		expect(page).to have_content("can't be blank")
+		expect(page).to have_content("Cannot send message.")		
+		#expect(page).to have_content("can't be blank")
 	end
 end

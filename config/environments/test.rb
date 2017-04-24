@@ -41,4 +41,11 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   Paperclip::Attachment.default_options[:path] = "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+
+  config.after_initialize do
+  # Set Time.now to September 1, 2008 10:05:00 AM (at this instant), but allow it to move forward
+  t = Time.local(2008, 9, 1, 10, 5, 0)
+  Timecop.freeze(t)
+end
+
 end
