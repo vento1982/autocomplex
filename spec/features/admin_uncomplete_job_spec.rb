@@ -1,15 +1,13 @@
 require 'rails_helper'
 require_relative '../support/admin_page'
 
+feature 'admin uncomplete the job' do 
 
-feature 'admin completed job' do
-	
-	let(:admin_page) { AdminPage.new }
 	let(:user) { FactoryGirl.create(:user) }
-	
+	let(:admin_page) { AdminPage.new }
 
 	background do
-		FactoryGirl.create(:job)
+		FactoryGirl.create(:job, completed_at: Time.now)
 
 		admin_page.visit_page.login_as(user)
 		expect(page).to have_content 'Logout'
@@ -17,16 +15,16 @@ feature 'admin completed job' do
 		visit admin_jobs_path
 	end
 
-	it 'can click on completed button' do
-		find_link(class: 'admin-jobs-btn__btn-complete').click
-		expect(page).to have_content 'Job has been completed.'
+	it 'can click on uncomplete button' do
+		find_link(class: 'admin-jobs-btn__btn-uncomplete').click
+
+		expect(page).to have_content 'Job has been uncompleted.'
 	end
 
-	it 'only wehen sign in' do
+	it 'only when sign in' do
 		admin_page.logout
 		visit admin_jobs_path
 
 		expect(page).to have_content 'You need to sign in or sign up before continuing.'
 	end
-
 end

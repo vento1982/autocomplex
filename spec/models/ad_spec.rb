@@ -39,4 +39,13 @@ RSpec.describe Ad, type: :model do
 
   end
 
+  describe '#to_param' do
+
+    it 'returns' do
+      ad = FactoryGirl.create(:ad, title: 'new title')
+      expect(ad.to_param).to eq('1-new-title')
+    end
+    
+  end
+
 end

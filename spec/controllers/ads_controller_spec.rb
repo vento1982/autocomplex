@@ -37,5 +37,6 @@ RSpec.describe AdsController, type: :controller do
 			get :show, id: ad
 			expect(assigns(:ad)).to eq(ad)
 		end
+		
 	end
 end

@@ -5,4 +5,9 @@ class Job < ActiveRecord::Base
   validates :ad, presence: true
 
   belongs_to :ad
+
+  def completed?
+  	!completed_at.blank?
+  end
+
 end

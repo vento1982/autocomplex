@@ -5,20 +5,28 @@
 				%tr
 					%th #
 					%th Name
-					%th E-mail
-					%th Message
 					%th Ad title
-					%th Data of application
-					%th Data of completed
+					%th Status
+					%th Actions
 			%tbody
 				- @jobs.each_with_index do |job, index|
 					%tr
 						%td= quantity_grater_then_ten(index) 
 						%td= job.name
-						%td= job.email
-						%td= job.message
 						%td= job.ad.title
-						%td= job.created_at.strftime("%d %B %Y")
+						- if job.completed?
+							%td= "Completed: #{time_ago_in_words(job.completed_at)} ago"
+						- else
+							%td= "Created: #{time_ago_in_words(job.created_at)} ago"
 						%td
-							= link_to 'Completed', complete_admin_job_path(job), method: :patch
-							= link_to 'Delete', admin_job_path(job), method: :delete, data: {confirm: 'Are You sure?'}
+							- if user_signed_in?
+								= link_to admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-show', title: 'Show' do
+									%span.fa.fa-search
+								- if job.completed?
+									= link_to uncomplete_admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-uncomplete', title: 'Uncomplete', method: :patch do
+										%span.fa.fa-undo				
+								- else
+									= link_to complete_admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-complete', title: 'Complete', method: :patch do
+										%span.fa.fa-check
+								= link_to admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-delete', title: 'Delete', method: :delete, data: {confirm: 'Are You sure?'} do
+									%span.fa.fa-trash

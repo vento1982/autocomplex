@@ -42,4 +42,13 @@ RSpec.describe Job, type: :model do
 
   end
 
+  describe '#completed?' do
+    
+    it 'returns false if is empty' do  
+      job = FactoryGirl.create(:job)
+      expect(job.completed?).to be_falsy
+    end
+
+  end
+
 end

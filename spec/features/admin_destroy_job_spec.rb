@@ -15,12 +15,12 @@ feature 'admin destroy job' do
 		visit admin_jobs_path
 	end
 
-	it 'can click on delete button' do
-		click_on 'Delete'
-		expect(page).to have_content 'Job has been delete.'
+	scenario 'can click on delete button' do
+		find_link(class: 'admin-jobs-btn__btn-delete').click
+		expect(page).to have_content 'Job has been deleted.'
 	end
 
-	it 'only when signed in' do
+	scenario 'only when signed in' do
 		admin_page.logout
 		visit admin_jobs_path
 
