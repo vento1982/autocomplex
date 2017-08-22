@@ -1,2 +1,26 @@
-%h1= @product.title
-%p= @product.description
+%section
+	%nav
+		.row.carrer-nav
+			.col-md-12
+				.row
+					.col-md-8.col-md-offset-2
+						.carrer-nav_container
+							= link_to root_path, class: 'carrer-nav__back' do
+								=fa_icon "arrow-left", text: 'Home page'
+%section.product-content
+	.row
+		.col-md-8.col-md-offset-2
+			.row
+				.col-md-8
+					%h1.product-content__title= @product.title
+					%div.product-content__desc
+						%p= Faker::Lorem.paragraph(20,true)
+						%p= Faker::Lorem.paragraph(20,true)
+						%p= Faker::Lorem.paragraph(20,true)
+
+				.col-md-4
+					.product-content__submenu
+						%ul.nav.flex-column
+							- @products.each do |product|
+								%li.nav-item
+									= link_to product.title, product_path(product), class: 'nav-link'

@@ -1,4 +1,5 @@
 @import 'colors_and_fonts';
+@import 'mixins';
 
 .wrapper-jumbotron {  
     background-color: $main-color;
@@ -16,6 +17,44 @@
             text-align: center;
         }
     }
+}
+
+ .modules{
+
+    height:60vh;
+    margin-bottom: 0;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    
+    background-color: #9999EE;
+    background-blend-mode: multiply;
+
+    h1{
+        text-align: center;
+    }
+}
+
+ .modules-1{
+    background-image: url(1.jpg);
+    background-color: #03A9F4;
+    }
+ .modules-2{
+    background-image: url(4.jpg);
+    background-color: #59ABE3;
+    }
+ .modules-3{
+    background-image: url(2.jpg);
+    background-color: #1E8BC3;
+    }
+ .modules-4{
+    background-image: url(5.jpg);
+    background-color: #446CB3;
+    }
+
+.btn-wrapper{
+    padding:20px 0;
+    text-align: center;       
 }
 
 .slogan-wrapper{
@@ -59,4 +98,30 @@
             text-align: center;
 		}
     }
+}
+
+.product-content{
+
+    padding-bottom: 30px; 
+
+    .product-content__title{
+        @include heading-1;
+        
+        &:after{
+            @include after-heading-1;
+        }
+    }
+
+    .product-content__desc{
+        
+        color: $txt-main-color;
+        font-size: 18px;
+        padding-top:50px;
+
+        p{
+            line-height: 30px;
+            margin-bottom: 40px;
+        }
+    }
+
 }

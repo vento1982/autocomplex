@@ -1,3 +1,36 @@
-// Place all the styles related to the jobs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors_and_fonts';
+@import 'mixins';
+
+.job-nav{
+
+	.job-nav__container{
+
+		.job-nav__back{
+			@include navback;
+		}
+	}
+
+}
+
+.job-apply{
+
+	padding-bottom: 30px;
+	
+	.job-list__title{
+		@include heading-1;
+
+		&:after{
+			@include after-heading-1;
+		}
+	}
+
+	.job-list__desc{
+		color: $txt-main-color;
+		font-size: 18px;
+		padding-top:50px;
+	}
+
+	.job-list__details-box{
+		@include side-box;
+	}
+}

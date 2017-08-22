@@ -1,33 +1,36 @@
-.row
-	.col-md-10.col-md-offset-1
-		.search-form
-			= search_form_for [:admin, @q] do |f|
-				= f.text_field :title_cont
-				= f.text_field :description_cont
-				= f.button :submit, class: "btn btn-default btn-xs"
-	.col-md-10.col-md-offset-1
+.container-inner
+	.row
+		.col-md-8.col-md-offset-2
+			.row
+				.col-md-6.col-md-offset-6
+					.search-form
+						= search_form_for [:admin, @q] do |f|
+							= f.text_field :title_cont
+							= f.text_field :description_cont
+							= f.button :submit, class: "btn btn-default btn-xs"
 		
-		%table.table.table-striped
-			%thead
-				%tr
-					%th #
-					%th= sort_link(@q, :title, 'Title')
-					%th= sort_link(@q, :description, 'Description')
-					%th= sort_link(@q, :created_at, 'Created at')
-					%th Actions
-			%tbody
-				- products.each_with_index do |product, index|
+		.col-md-8.col-md-offset-2	
+			%table.table.table-striped
+				%thead
 					%tr
-						%td= index +1
-						%td.product-name= product.title.titleize
-						%td.product-desc= simple_format(truncate(product.description, length:30))
-						%td.product-data= product.created_at
-						%td
-							- if user_signed_in?
-								= link_to admin_product_path(product), class: "btn btn-default btn-xs" do
-									%span.fa.fa-search
-								= link_to edit_admin_product_path(product), class: "btn btn-default btn-xs" do
-									%span.fa.fa-pencil
-								= link_to admin_product_path(product), method: :delete, data: {confirm: "Are You sure ?"},  class: "btn btn-default btn-xs" do
-									%span.fa.fa-trash
+						%th #
+						%th= sort_link(@q, :title, 'Title')
+						%th= sort_link(@q, :description, 'Description')
+						%th= sort_link(@q, :created_at, 'Created at')
+						%th Actions
+				%tbody
+					- products.each_with_index do |product, index|
+						%tr
+							%td= index +1
+							%td.product-name= product.title.titleize
+							%td.product-desc= simple_format(truncate(product.description, length:30))
+							%td.product-data= product.created_at
+							%td
+								- if user_signed_in?
+									= link_to admin_product_path(product), class: "btn btn-default btn-xs" do
+										%span.fa.fa-search
+									= link_to edit_admin_product_path(product), class: "btn btn-default btn-xs" do
+										%span.fa.fa-pencil
+									= link_to admin_product_path(product), method: :delete, data: {confirm: "Are You sure ?"},  class: "btn btn-default btn-xs" do
+										%span.fa.fa-trash
 						

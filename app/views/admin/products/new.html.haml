@@ -1,4 +1,10 @@
-= simple_form_for [:admin, @product] do |f|
-	= f.input :title, placeholder: "What's Your name"
-	= f.input :description
-	= f.button :submit, 'Add product'
+%section
+	.row
+		.col-md-8.col-md-offset-2
+			%h1 Adding product
+			.row
+				.col-md-8
+					= simple_form_for [:admin, @product] do |f|
+						= f.input :title, placeholder: "What's Your name"
+						= f.input :description
+						= f.button :submit, 'Add product'

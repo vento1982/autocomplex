@@ -4,3 +4,54 @@
   &::-moz-placeholder { @content; }
   &::-webkit-input-placeholder { @content; }
 }
+
+@mixin navback{
+	color: $gray;
+	display: block;
+	font-size: 16px;
+	padding: 20px 0;
+
+		&:hover{
+			color: $main-color;
+		}
+
+		.fa{
+			margin-right:8px;
+		}
+}
+
+@mixin side-box{
+	border: 1px solid #f0f0f0;
+	margin-top:34px;
+	padding: 20px;
+}
+
+@mixin heading {
+	font-weight: 100;
+}
+
+@mixin heading-1{
+	@include heading;
+
+	color: $main-color;
+	font-size: 48px;
+}
+
+@mixin after-heading-1{
+	background-color: $main-color;
+	content: "";
+	display: block;
+	height:1px;
+	position: relative;
+	top: 34px;
+	width:50px;
+
+}
+
+@mixin heading-2{
+
+}
+
+@mixin heading-3{
+
+}

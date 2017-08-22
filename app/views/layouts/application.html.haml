@@ -10,17 +10,22 @@
 		=render partial: 'layouts/navigation'
 	=bootstrap_flash
 	%main
-		.container-fluid
-			-if params[:controller] != 'pictures'
-				.row.wrapper-jumbotron
-					.col-md-12				
-						.jumbotron
-							.container
-								%h1.jumbotron-slogan-header 
-									-if params[:controller] == 'ads' && params[:action] == 'index'
-										We are hiring! 
-									- if params[:controller] == 'static' && params[:action] == 'about'
-										Great choose !!!	
+		.container-fluid			
+			.row.wrapper-jumbotron
+				.col-md-12				
+					.jumbotron
+						.container
+							%h1.jumbotron-slogan-header 
+								-if params[:controller] == 'ads' && params[:action] == 'index'
+									We are hiring! 
+								-if params[:controller] == 'static' && params[:action] == 'about'
+									Great choose !!!
+								-if params[:controller] == 'products' && params[:action] == 'show'	
+									What can We do for You ?
+								-if params[:controller] == 'contacts' && params[:action] == 'new'
+									Contact with us!
+								-if params[:controller] == 'pictures' && params[:action] == 'index'
+									Galeria
 			=yield
 	%footer{:class => 'site-footer'}
 		=render partial: 'layouts/footer'

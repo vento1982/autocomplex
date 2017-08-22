@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		render layout: 'products'
+		@products = Product.all
+		render layout: 'application'
 	end
 
 	private

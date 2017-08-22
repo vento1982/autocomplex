@@ -11,7 +11,11 @@
 	= bootstrap_flash
 	%main
 		.container-fluid					
-			.jumbotron{:class => "#{@product.title}"}
-				.container
-					%h1 Testssssssssssssss			
+			.row.wrapper-jumbotron
+				.col-md-12
+					.jumbotron
+						.container
+							%h1.jumbotron-slogan-header= @product.title			
 			= yield
+	%footer{:class => 'site-footer'}
+		=render partial: 'layouts/footer'

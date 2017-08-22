@@ -29,7 +29,7 @@
 print 'Start adding Pelope aplication'
 
 (1..40).each do |job|
-	Job.create(name: Faker::Name.name, email: Faker::Internet.email, message: Faker::Lorem.sentence(3) , ad: Ad.order("RANDOM()").first)
+	Job.create(name: Faker::Name.name, email: Faker::Internet.email, message: Faker::Hacker.say_something_smart , ad: Ad.order("RANDOM()").first)
 	print '.'
 end
 

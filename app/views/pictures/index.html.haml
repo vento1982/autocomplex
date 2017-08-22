@@ -1,10 +1,9 @@
-.center-text
-	%h1.styled Gallery
-.row
-	.col-md-8.col-md-offset-2
-		#pics.transitions-enabled
-			- @pictures.each do |picture|
-				.box
-					= image_tag picture.image.url(:medium)
+%section.gallery-content
+	.row
+		.col-md-8.col-md-offset-2
+			#pics.transitions-enabled
+				- @pictures.each do |picture|
+					.box
+						= image_tag picture.image.url(:medium)
 					
 					

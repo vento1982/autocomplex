@@ -1,3 +1,10 @@
-%h1 Product Admin Site
+%section
+	.row
+		.col-md-8.col-md-offset-2
+			%h1.product-list__title Products
 
-=render partial: 'products', locals: {products: @products}
+	=render partial: 'products', locals: {products: @products}
+
+	.row											
+		.col-md-2.col-md-offset-2
+			=link_to "Add product", new_admin_product_path, class: "btn btn-primary"

@@ -1,6 +1,23 @@
-%section.job-desc
+%section.job-apply
 	.row
 		.col-md-8.col-md-offset-2
-			%h1.job-list__title= @job.name
-			%div.job-list__desc
-				%p= @job.message
+			.row
+				.col-md-8
+					%h1.job-list__title= @job.name
+					%div.job-list__desc
+						%p= @job.message
+				.col-md-4
+					.job-list__details-box
+						%p= "Date of application: #{@job.created_at.strftime("%d %B %Y")}"
+						%p= "E-mail: #{@job.email}"
+						%p= "Position: #{@job.ad.title}"
+						%button#print-button Print application
+%section
+	%nav
+		.row.job-nav
+			.col-md-12
+				.row
+					.col-md-8.col-md-offset-2
+						.job-nav__container
+							=link_to  admin_jobs_path, class: 'job-nav__back' do
+								=fa_icon "arrow-left", text: 'All jobs'

@@ -1,32 +1,37 @@
-.row
-	.col-md-10.col-md-offset-1
-		%table.table.table-striped
-			%thead
-				%tr
-					%th #
-					%th Name
-					%th Ad title
-					%th Status
-					%th Actions
-			%tbody
-				- @jobs.each_with_index do |job, index|
-					%tr
-						%td= quantity_grater_then_ten(index) 
-						%td= job.name
-						%td= job.ad.title
-						- if job.completed?
-							%td= "Completed: #{time_ago_in_words(job.completed_at)} ago"
-						- else
-							%td= "Created: #{time_ago_in_words(job.created_at)} ago"
-						%td
-							- if user_signed_in?
-								= link_to admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-show', title: 'Show' do
-									%span.fa.fa-search
+%section
+	.row
+		.col-md-8.col-md-offset-2
+			%h1.product-list__title Jobs
+	.container-inner
+		.row
+			.col-md-8.col-md-offset-2		
+				%table.table.table-striped
+					%thead
+						%tr
+							%th #
+							%th Name
+							%th Ad title
+							%th Status
+							%th Actions
+					%tbody
+						- @jobs.each_with_index do |job, index|
+							%tr
+								%td= quantity_grater_then_ten(index) 
+								%td= job.name
+								%td= job.ad.title
 								- if job.completed?
-									= link_to uncomplete_admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-uncomplete', title: 'Uncomplete', method: :patch do
-										%span.fa.fa-undo				
+									%td= "Completed: #{time_ago_in_words(job.completed_at)} ago"
 								- else
-									= link_to complete_admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-complete', title: 'Complete', method: :patch do
-										%span.fa.fa-check
-								= link_to admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-delete', title: 'Delete', method: :delete, data: {confirm: 'Are You sure?'} do
-									%span.fa.fa-trash
+									%td= "Created: #{time_ago_in_words(job.created_at)} ago"
+								%td
+									- if user_signed_in?
+										= link_to admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-show', title: 'Show' do
+											%span.fa.fa-search
+										- if job.completed?
+											= link_to uncomplete_admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-uncomplete', title: 'Uncomplete', method: :patch do
+												%span.fa.fa-undo				
+										- else
+											= link_to complete_admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-complete', title: 'Complete', method: :patch do
+												%span.fa.fa-check
+										= link_to admin_job_path(job), class: 'btn btn-default btn-xs admin-jobs-btn__btn-delete', title: 'Delete', method: :delete, data: {confirm: 'Are You sure?'} do
+											%span.fa.fa-trash

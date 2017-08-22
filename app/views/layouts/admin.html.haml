@@ -13,8 +13,13 @@
 				%li= link_to 'Ads', admin_ads_path
 				%li= link_to 'Jobs', admin_jobs_path
 			%ul.nav.navbar-nav.navbar-right
-				%li= link_to 'New product', new_admin_product_path
+				- if params[:controller] == 'admin/products' && params[:action] = 'index'
+					%li= link_to 'Add product', new_admin_product_path
+				- if params[:controller] == 'admin/pictures' && params[:action] = 'index'
+					%li= link_to 'Add picture', new_admin_picture_path
+				- if params[:controller] == 'admin/ads' && params[:action] = 'index'
+					%li= link_to 'Add ad', new_admin_ad_path
 				%li= link_to 'Log out', destroy_user_session_path, method: :delete
 	= bootstrap_flash
-	.container
+	.container-fluid
 		= yield

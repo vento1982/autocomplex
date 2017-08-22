@@ -1,5 +1,5 @@
 - products.each do |product|
-	.col-md-12{:class => ["#{product.title}","modules"]}
+	.col-md-12{:class => ["modules-#{product.id}","modules"]}
 		.slogan-wrapper
 			.slogan-content
 				%h1.main-slogan-header= product.title.titleize

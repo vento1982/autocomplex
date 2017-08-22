@@ -1,35 +1,39 @@
-.row
-	.col-md-10.col-md-offset-1
+%section
+	.row
+		.col-md-8.col-md-offset-2
+			%h1.product-list__title Ads
+	.container-inner
 		.row
-			.col-md-8
+			.col-md-6.col-md-offset-2
 				%h1#picture-quantity This gallery containe #{Picture.all.count} #{"photo".pluralize(Picture.all.count)}. 
-			.col-md-4
-				=link_to "New pictures", new_admin_picture_path, class: "btn btn-primary"
-.row
-	.col-md-10.col-md-offset-1
-		%table.table.table-striped
-			%thead
-				%tr
-					%th #
-					%th= sort_link(@q, :name, 'Title')
-					%th Images
-					%th= sort_link(@q, :created_at, 'Created at')
-					%th Actions
-			%tbody
-				- @pictures.each_with_index do |picture,index|
-					%tr
-						%td= index + (params[:page].to_i * 10) + 1
-						%td.picture-title= picture.name
-						%td= image_tag picture.image.url(:thumb)
-						%td.picture-date= picture.created_at
-						%td
-							-if user_signed_in?
-								= link_to admin_picture_path(picture), id: 'show-picture', class: 'btn btn-default btn-xs' do
-									%span.fa.fa-search
-								= link_to edit_admin_picture_path(picture), class: 'btn btn-default btn-xs' do
-									%span.fa.fa-pencil
-								= link_to admin_picture_path(picture), method: :delete, data: {confirm: 'Are You sure ?'}, class: 'btn-default btn-xs' do
-									%span.fa.fa-trash
-.row
-	.col-md-10.col-md-offset-1
-		= paginate @pictures
+		.row
+			.col-md-8.col-md-offset-2
+				%table.table.table-striped
+					%thead
+						%tr
+							%th #
+							%th= sort_link(@q, :name, 'Title')
+							%th Images
+							%th= sort_link(@q, :created_at, 'Created at')
+							%th Actions
+					%tbody
+						- @pictures.each_with_index do |picture,index|
+							%tr
+								%td= index + (params[:page].to_i * 10) + 1
+								%td.picture-title= picture.name
+								%td= image_tag picture.image.url(:thumb)
+								%td.picture-date= picture.created_at
+								%td
+									-if user_signed_in?
+										= link_to admin_picture_path(picture), id: 'show-picture', class: 'btn btn-default btn-xs' do
+											%span.fa.fa-search
+										= link_to edit_admin_picture_path(picture), class: 'btn btn-default btn-xs' do
+											%span.fa.fa-pencil
+										= link_to admin_picture_path(picture), method: :delete, data: {confirm: 'Are You sure ?'}, class: 'btn-default btn-xs' do
+											%span.fa.fa-trash
+		.row											
+			.col-md-2.col-md-offset-2
+				=link_to "Add pictures", new_admin_picture_path, class: "btn btn-primary"
+		.row
+			.col-md-8.col-md-offset-2
+				= paginate @pictures

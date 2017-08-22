@@ -28,7 +28,12 @@ feature 'admin visits job#show' do
 	end
 
 	scenario 'should see back link' do
+		job = FactoryGirl.create(:job)
+		visit admin_job_path(job)
 
+		within('.job-nav__container') do
+			expect(page).to have_content 'All jobs'
+		end
 	end
 
 end
