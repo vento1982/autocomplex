@@ -3,9 +3,18 @@
 	%title Autocomplex
 	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 	= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700', media: 'all', 'data-turbolinks-track' => true
-	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	//= javascript_include_tag 'application', 'data-turbolinks-track' => true
 	= csrf_meta_tags
 %body
+	#blueimp-gallery.blueimp-gallery
+		.slides
+		%h3.title
+		%a.prev <
+		%a.next <
+		%a.close x
+		%a.play-pause
+		%ol.indicator
+
 	%header
 		=render partial: 'layouts/navigation'
 	=bootstrap_flash
@@ -29,3 +38,5 @@
 			=yield
 	%footer{:class => 'site-footer'}
 		=render partial: 'layouts/footer'
+
+	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 	

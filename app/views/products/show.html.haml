@@ -24,3 +24,4 @@
 							- @products.each do |product|
 								%li.nav-item{:class => (@product == product ? 'active' : nil)}
 									= link_to product.title, product_path(product), class: 'nav-link'
+

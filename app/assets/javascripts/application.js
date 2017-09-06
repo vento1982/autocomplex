@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require masonry/jquery.masonry
+//= require lightbox
 //= require_tree .

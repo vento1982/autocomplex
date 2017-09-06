@@ -4,6 +4,6 @@
 			#pics.transitions-enabled
 				- @pictures.each do |picture|
 					.box
-						= image_tag picture.image.url(:medium)
+						= link_to image_tag(picture.image.url(:medium)), image_path(picture.image.url), :'data-lightbox' => 'example-set'
 					
 					

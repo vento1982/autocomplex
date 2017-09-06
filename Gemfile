@@ -31,7 +31,6 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'jquery-turbolinks'
 gem 'ransack', '~> 1.7'
 gem 'kaminari'
-gem 'blacklight-gallery', '~> 0.8.0'
 
 group :development, :test do
   gem 'spring'
